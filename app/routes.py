@@ -28,6 +28,11 @@ def index_route():
             print(found_url)
             return render_template("result.html",original=found_url.old_url,new=found_url.new_url)
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+
 @app.route("/<id>",methods=["GET"])
 def reroute(id):
     url = Urls.query.filter_by(new_url=id).first()
